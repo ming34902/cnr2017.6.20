@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册账号-register</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/iconfont.css" type="text/css" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <link rel="stylesheet" href="css/register.css" type="text/css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/mycookie.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/register.js"></script>
+</head>
+<body>
+<!--头部-->
+<div class="header-wrap">
+    <header class="public-head-layout wrapper">
+        <h1 class="site-logo"><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+        <div class="nc-login-now">我已经注册，现在就<a href="login.html" title="" class="register">登录</a></div>
+    </header>
+</div>
+<!--头部-->
+<!--主板块-注册-->
+<div class="nc-register-bg">
+    <div class="nc-register-box">
+        <div class="nc-register-layout">
+            <div class="left">
+                <div id="registerModule" class="nc-register-mode">
+                    <ul class="tabs-nav">
+                        <!--<li><a href="#commonModule" class="tabulous_active">账号注册<i></i></a></li>-->
+                        <!---->
+                        <li><a href="#mobileModule">手机注册<i></i></a></li>
+                        <!---->
+                    </ul>
+                    <div id="tabs_container" class="tabs-container">
+                        <!--<div id="commonModule" class="tabs-content">
+                          <form id="registerForm" class="nc-login-form" name="registerForm" method="post">
+                            <dl>
+                              <dt>用户名：</dt>
+                              <dd>
+                                <input name="memberName" type="text" class="text" id="memberName" placeholder="请使用6-20个中、英文、数字及“-”符号" maxlength="20" autocomplete="off"/>
+                              </dd>
+                            </dl>
+                            <dl>
+                              <dt>设置密码：</dt>
+                              <dd>
+                                <input name="memberPwd" type="password" class="text" id="memberPwd" placeholder="6-20个大小写英文字母、符号或数字" maxlength="20" autocomplete="off"/>
+                              </dd>
+                            </dl>
+                            <dl>
+                              <dt>确认密码：</dt>
+                              <dd>
+                                <input name="repeatMemberPwd" type="password" class="text" id="repeatMemberPwd" placeholder="请再次输入密码" maxlength="20" autocomplete="off"/>
+                              </dd>
+                            </dl>
+                            <dl>
+                              <dt>邮箱：</dt>
+                              <dd>
+                                <input type="text" id="email" class="text" name="email" placeholder="输入常用邮箱作为验证及找回密码使用" autocomplete="off"/>
+                              </dd>
+                            </dl>
+                            <div class="code-div mt15">
+                              <dl>
+                                <dt>验证码：</dt>
+                                <dd>
+                                  <input id="captcha" class="text w100" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off"/>
+                                </dd>
+                              </dl>
+                              <span><img id="codeimage" src="https://www.cnrmall.com/captcha/getcaptcha" class="codeimg" alt=""/> <a href="JavaScript:void(0);" nc_type="changeCaptcha" onclick="javascript:document.getElementById('codeimage').src='https://www.cnrmall.com/captcha/getcaptcha?t='+Math.random()" class="code-pic">看不清，更换一张</a> </span></div>
+                            <dl class="clause-div">
+                              <dd>
+                                <input type="checkbox" checked="checked" value="1" class="checkbox" id="agreeClause" name="agreeClause"/>
+                                阅读并同意 <a title="阅读并同意" class="agreement" href="javascript:void(0);" nc_type="btnShowClauseDialog">《服务协议》</a> </dd>
+                            </dl>
+                            <div class="submit-div">
+                              <button id="registerSubmit" class="submit">立即注册</button>
+                            </div>
+                          </form>
+                        </div>-->
+                        <!---->
+                        <div id="mobileModule" class="tabs-content">
+                            <form id="mobileFormFirst" class="nc-login-form" name="mobileForm" method="post" novalidate="novalidate">
+                                <dl>
+                                    <dt>手机号：</dt>
+                                    <dd class="mob-dd01">
+                                        <input name="mobile" type="text" class="text" id="mobile" placeholder="请输入手机号码" autocomplete="off" maxlength="11" >
+                                        <label for="mobile" class="error mob-error">
+                                            <i class="fa fa-exclamation-circle iconfont">&#xe693;</i>
+                                            请输入正确的手机号
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <div class="code-div">
+                                    <dl>
+                                        <dt>验证码：</dt>
+                                        <dd>
+                                            <input id="captchaMobile" class="text w100" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off">
+                                            <label for="mobile" class="error mob-yzm-error">
+                                                <i class="fa fa-exclamation-circle iconfont">&#xe693;</i>
+                                            </label>
+                                        </dd>
+                                    </dl>
+                                    <span>
+                                        <div id="codeimageMobile" class="codeimg mycode01" style="cursor:pointer;"  >6898</div>
+                                    </span>
+                                </div>
+                                <dl class="clause-div">
+                                    <dd>
+                                        <input type="checkbox" checked="checked" value="1" class="checkbox" id="mobileAgreeClause" name="agreeClause">
+                                        阅读并同意 <a title="阅读并同意" class="agreement" href="javascript:void(0);" nc_type="btnShowClauseDialog">《服务协议》</a> </dd>
+                                </dl>
+                                <div class="submit-div">
+                                    <!--button 按钮会自动刷新页面 这里不能使用它-->
+                                    <div id="mobileSubmitFirst" class="subbbbb" >下一步</div>
+                                </div>
+                            </form>
+                            <form id="mobileFormSecond" class="nc-login-form" name="mobileForm" method="post" novalidate="novalidate">
+                                <dl class="clause-div m0">
+                                    <input type="hidden" name="mobile" id="mobileSecond">
+                                    <dd id="mobilemsg"></dd>
+                                </dl>
+                                <dl class="m-t-10">
+                                    <dt>动态码：</dt>
+                                    <dd>
+                                        <input value="aassas"  type="text" id="authCode" class="text" name="authCode" placeholder="输入6位短信验证码" autocomplete="off" maxlength="6">
+                                    </dd>
+                                </dl>
+                                <div class="code-div" nctype="sendAuthCodeAgainModule">
+                                    <dl>
+                                        <dt>验证码：</dt>
+                                        <dd>
+                                            <input id="captchaMobileSecond" class="text w100" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off" size="10">
+                                            <label  class="error  yzm-error02">
+                                                <i class="fa fa-exclamation-circle iconfont">&#xe693;</i>
+                                            </label>
+                                        </dd>
+                                    </dl>
+                                    <span>
+                                      <div id="codeimageMobile02" class="codeimg mycode01 " style="cursor:pointer;"  >6778</div>
+                                    </span>
+                                </div>
+                                <div class="tiptext">
+                                    <span nctype="sendAuthCodeAgainModule" ><a href="javascript:void(0);" nctype="sendAuthCode">重新获取动态码</a></span>
+                                    <span nctype="sendAuthCodeTimesModule" style="display: none; padding-left: 5px; text-align: center;">您可以在<strong nctype="sendAuthCodeTimes" class="red mr5"></strong>秒后再次获取动态码</span>
+                                </div>
+                                <dl>
+                                    <dt>用户名：</dt>
+                                    <dd>
+                                        <input name="memberName" type="text" class="text" id="memberName" placeholder="请使用6-20个中、英文、数字及“-”符号" maxlength="20" autocomplete="off">
+                                        <label for="memberName" class="error error-uname">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            请使用6-20个中、英文、数字及“-”符号，且不能全为数字
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>设置密码：</dt>
+                                    <dd>
+                                        <input type="password" id="mobileMemberPwd" class="text" name="memberPwd">
+                                        <label for="mobileMemberPwd" class="error error-upwd">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            密码长度应在6-20个字符之间
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>确认密码：</dt>
+                                    <dd>
+                                        <input type="password" id="mobileRepeatMemberPwd" class="text" name="repeatMemberPwd">
+                                        <label for="mobileRepeatMemberPwd" class="error error-rpwd ">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            请再次输入密码
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <div class="submit-div">
+                                    <div id="mobileSubmitSecond" class="submit">立即注册</div>
+                                </div>
+                            </form>
+                            <div id="mobileThree">
+                                <div class="mobileThree001"></div>
+                            </div>
+                        </div>
+                        <!---->
+                    </div>
+                </div>
+                <div id="dialogClause" style="display:none;">
+                    <!--<h1>会员注册协议</h1>-->
+                    <div id="clauseContent" style="padding: 20px;">
+                        <p>特别提醒用户认真阅读本《用户服务协议》整个网上交易平台的正常运行，尽力避免服务中断或将引起与本网站的任何争议，
+                        均应提交深圳仲裁委员会按照该会届时有效的仲裁规则进行仲裁。相关争议应单独仲裁，不得与任何其它方的争议在任
+                        &nbsp;何仲裁中合并处理，该仲裁裁决是终局，对各方均有约束力。如果所涉及的争议不适于仲裁解决，
+                        用户同意一切争议由人民法院管辖。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="right">
+                <div class="reister-after">
+                    <h4>注册之后您可以</h4>
+                    <ol>
+                        <li class="ico01"><i class="iconfont" style="color: #2b669a">&#xe71e;</i>购买商品支付订单</li>
+                        <li class="ico02"><i class="iconfont" style="color:orange">&#xe719;</i>收藏商品收藏店铺</li>
+                        <li class="ico03"><i class="iconfont" style="color: coral">&#xe679;</i>安全交易诚信无忧</li>
+                        <!--<li class="ico04"><i></i>积分获取优惠购物</li>-->
+                        <li class="ico05"><i class="iconfont" style="color: red">&#xe720;</i>会员等级享受特权</li>
+                        <li class="ico06"><i class="iconfont" style="color: greenyellow">&#xe709;</i>交易评价站外分享</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主板块-注册-->
+<!--底部-->
+<!--copyright-->
+<div id="footer">
+    <div class="wrapper">
+        <p><a href="index.html">首页</a>
+            | <a target="_blank" href="javascript:void(0)">招商合作</a>           | <a target="_blank" href="javascript:void(0)">关于央广购物</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/175304">联系我们</a>           | <a target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp">成为供应商</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/532349">招贤纳士</a>
+        </p>
+        <p><i></i>京公网安备：11011502002190&nbsp;&nbsp;<a target="_blank" href="javascript:void(0)">京ICP备10038858号</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a></p>
+        <p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2017 cnrmall.com All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+        <ul class="footer-img">
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+        </ul>
+    </div>
+</div>
+<!--底部-->
+</body>
+</html>

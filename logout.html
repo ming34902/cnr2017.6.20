@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退出登录-logout</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/iconfont.css" type="text/css" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <link rel="stylesheet" href="css/details.css" type="text/css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/mycookie.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/getcookie.js"></script>
+</head>
+<body>
+<!--顶部开始-->
+<div  class="public-top-layout" style="width: 100%;">
+    <div  id="top">
+        <ul>
+            <li class="yonghu000" style="border-right:none;">
+                <a href="login.html" id="yonghu" >您好，请登录</a>
+                <a href="register.html" id="tuichu" class="c-ff6702" >免费注册</a>
+            </li>
+            <li>
+                <dl>
+                    <dt>我的订单<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>我的收藏<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>客户服务<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--顶部结束-->
+<!--头部开始-->
+<div style="width: 100%">
+    <div id="header">
+        <!--logo开始-->
+        <div class="logo">
+            <h1>
+                <a href="javascript:void(0)">欢迎来到央广购物</a>
+            </h1>
+        </div>
+        <!--logo结束-->
+        <!--搜索开始-->
+        <div class="search">
+            <div class="search-top">
+                <form class="search-form">
+                    <div class="head-search-tab">
+                        <span data="head-search-bar">
+                            <a href="javascript:;" class="selected">宝贝</a>
+                        </span>
+                        <span data="head-search-store-bar" class="secend">
+                            <a href="javascript:;" class="" data="head-search-store-bar">店铺</a>
+                        </span>
+                        <i class="iconfont baobei">&#xe6e2;</i>
+
+                    </div>
+                    <input  type="text" class="input-text"  placeholder="请输入您要搜索的商品关键词" />
+                    <input type="submit" class="input-sub"  value="搜索"/>
+                </form>
+            </div>
+            <div class="keyword">
+                <ul>
+                    <li><a target="_blank" href="javascript:void(0)">GUCCI</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">汉灸堂</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">琦玉坊</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">良品堂辽参</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">韩束</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">达芬帝</a></li>
+                    <li><a target="_blank" href="javascript:void(0)">中国白银</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--搜索结束-->
+        <div class="head-user-menu">
+            <dl class="my-mall">
+                <dt class="my-mall-dt"><span class="ico iconfont">&#xe744;</span>我的商城<i class="youjiantou iconfont">&#xe6d3;</i></dt>
+                <dd>
+                    <div class="user-box">
+                        <div class="user-avatar">  <img src="https://static.cnrmall.com/public/img/avatar.gif@160w_160h">  </div>
+                        <div class="user-info">
+                            <div class="user-base">
+                                <h3><i id="yonghu2" style="display: inline-block">1111</i><sub title="会员等级">注册会员</sub></h3>
+                                <p>上次登录：
+                                    <time>2017-06-19 11:24:07</time>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-centent-menu">
+                        <ul>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/message/list">站内消息<span id="topMessageUnreadCount"></span></a></li>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/orders/list" class="arrow">我的订单<span id="topMemberOrders"></span></a></li>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/consult/list">咨询回复<span id="topMemberConsult"></span></a></li>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/favorites/goods" class="arrow">我的收藏<span id="topMemberFavoritesGoods"></span></a></li>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/goodsbrowse">我的足迹<span id="topMemberGoodsBrowse">(3)</span></a></li>
+                            <li><a target="_blank" href="https://www.cnrmall.com/member/pointslog" class="arrow">我的积分<span>(20)</span></a></li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+            <dl class="my-cart buy" id="topMyCart">
+                <dt href=" cart.html" class="my-cart-dt"><i class="iconfont gouwuche">&#xe612;</i>
+                    购物车<span class="goods-num" style="color: orangered"> 0 </span>件
+                    <i class="iconfont youjiantou">&#xe6d3;</i></dt>
+                <dd class="buy-box sub-con">
+                    <div class="sub-title">
+                        <h4>最新加入的商品</h4>
+                    </div>
+                    <div class="incart-goods-box ps-container">
+                        <div class="incart-goods" data-cart-goods-list="">
+                            <dl>
+                                <dt class="goods-name">
+                                    <a target="_blank" href="javascript:void(0)" title="BVLGARI/宝格丽 中性醋酸纤维经典标志玳瑁色金属边框太阳镜 0BV8189 504/13 55 ">
+                                        BVLGARI/宝格丽 中性醋酸纤维经典标志玳瑁色金属边框太阳镜 0BV8189 504/13 55
+                                        <p></p>
+                                    </a>
+                                </dt>
+                                <dd class="goods-thumb">
+                                    <a target="_blank" href="javascript:void(0)" title="BVLGARI/宝格丽 中性醋酸纤维经典标志玳瑁色金属边框太阳镜 0BV8189 504/13 55 ">
+                                        <img src="https://pic4.cnrmall.com/image/08/69/08692807ab4e31d4b859b8daeb1b59ac.jpg@60w_60h">
+                                    </a>
+                                </dd>
+                                <dd class="goods-sales"></dd>
+                                <dd class="goods-price">
+                                    <em>¥2464.00×1</em>
+                                </dd>
+                                <dd class="handle">
+                                    <em>
+                                        <a href="javascript:void(0);" data-cart-del="10863492">删除</a>
+                                    </em>
+                                </dd>
+                            </dl>
+                        </div>
+                        <!--<div class="ps-scrollbar-x-rail" style="width: 348px; display: none; left: 0px; bottom: 3px;">-->
+                        <!--<div class="ps-scrollbar-x" style="left: 0px; width: 0px;">-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="ps-scrollbar-y-rail" style="top: 0px; height: 67px; display: none; right: 3px;">-->
+                        <!--<div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="checkout" data-goods-price="" style="display: block;">
+                    <span class="total-price" style="display: block;">
+                        共<i>1</i>种商品&nbsp;&nbsp;总计金额：
+                        <em>¥2464.00</em>
+                    </span>
+                        <a href="https://www.cnrmall.com/cart/list" class="btn-cart">结算购物车中的商品</a>
+                    </div>
+
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--头部开始-->
+<!--导航条开始-->
+<div class="public-nav-layout">
+    <div id="nav" >
+        <div class="nav-l">
+            <div class="nav-l-title">
+                <a href="#" class="allpriose">全部商品分类</a>
+            </div>
+            <ul id="myul">
+                <!--<li>-->
+                <!--<div class="nav-l-box-left">-->
+                <!--<div class="nav-l-box2">-->
+                <!--<a href="javascript:void(0)" class="li01">食品</a>-->
+                <!--<em>/</em>-->
+                <!--<a href="javascript:void(0)" class="li01">酒类</a>-->
+                <!--<em>/</em>-->
+                <!--<a href="javascript:void(0)" class="li01">饮料</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="nav-l-box-right sub-class">-->
+                <!--<div class="sub-class-content">-->
+                <!--<dl>-->
+                <!--<dt>-->
+                <!--<h3><a target="_blank" href="javascript:void(0)">粮油调味</a></h3>-->
+                <!--</dt>-->
+                <!--<dd class="goods-class">-->
+                <!--<a target="_blank" href="javascript:void(0)">米面杂粮</a>-->
+                <!--<a target="_blank" href="javascript:void(0)">食用油</a>-->
+                <!--<a target="_blank" href="javascript:void(0)">调味品</a>-->
+                <!--<a target="_blank" href="javascript:void(0)">南北干货</a>-->
+                <!--<a target="_blank" href="javascript:void(0)">方便食品</a>-->
+                <!--<a target="_blank" href="javascript:void(0)">有机食品</a>-->
+                <!--</dd>-->
+                <!--</dl>-->
+                <!--</div>-->
+                <!--<div class="sub-class-right">-->
+                <!--<div class="adv-promotions">-->
+                <!--<a href="javascript:void(0)" target="_blank">-->
+                <!--<img src="https://pic.cnrmall.com/image/ba/f6/baf6018758306619798e00e3b6e3e2b2.jpg" title="">-->
+                <!--</a>-->
+                <!--<a href="javascript:void(0)" target="_blank">-->
+                <!--<img src="https://pic.cnrmall.com/image/3d/31/3d31b4e0313bde61b1d028ec29b38dc8.jpg" title="">-->
+                <!--</a>-->
+                <!--<a href="javascript:void(0)" target="_blank">-->
+                <!--<img src="https://pic.cnrmall.com/image/2c/aa/2caa1b77b636a4382f8389090517827d.jpg" title="">-->
+                <!--</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li> 后续li标签进行调json 数据动态创建-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+        <ul class="nav-c">
+            <li>
+                <a  href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">TV直播</a>
+            </li>
+            <li>
+                <a href="#">品牌特卖</a>
+            </li>
+            <li>
+                <a href="#">清仓专区</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--导航条结束-->
+<!--主体区-->
+<div style="width: 100%;">
+    <div class="kongde" style="width: 100%;height: 200px;text-align: center;">
+        <div style="height: 30px;line-height: 30px;margin:80px auto 0 auto;width: 400px;text-align: center;font-size: 20px;">
+            您已成功退出登录，请前往&nbsp;<a href="index.html" style="display: inline-block;color: #0000FF;">首页</a>
+        </div>
+    </div>
+</div>
+<!--copyright-->
+<div id="footer">
+    <div class="wrapper">
+        <p><a href="index.html">首页</a>
+            | <a target="_blank" href="javascript:void(0)">招商合作</a>           | <a target="_blank" href="javascript:void(0)">关于央广购物</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/175304">联系我们</a>           | <a target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp">成为供应商</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/532349">招贤纳士</a>
+        </p>
+        <p><i></i>京公网安备：11011502002190&nbsp;&nbsp;<a target="_blank" href="javascript:void(0)">京ICP备10038858号</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a></p>
+        <p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2017 cnrmall.com All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+        <ul class="footer-img">
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+        </ul>
+    </div>
+</div>
+<!--底部-->
+</body>
+</html>

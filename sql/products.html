@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    <!--sql 备份-->
+    `products``xw002cnr`USE xw002cnr
+    -- 创建表 products
+    CREATE TABLE `products` (
+        `proid` INT(11) NOT NULL AUTO_INCREMENT,
+        -- id索引 自增长 不能为空
+        `proname` VARCHAR(50) NOT NULL,
+        `proprice` VARCHAR(10) NOT NULL,
+        `proimg` VARCHAR(500) DEFAULT NULL,
+        `description` VARCHAR(50) DEFAULT NULL,
+        `prostatus` INT(11) DEFAULT NULL,
+
+        PRIMARY KEY (`proid`)
+    --  设置 proid 栏位 为主键
+
+    ) ENGINE=INNODB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+    -- 引擎为 xxx   字符集读写为 utf-8
+
+    INSERT  INTO `products`(`proid`,`proname`,`proprice`,`proimg`,`description`,`prostatus`)
+    VALUES (1,'天兴天池古椴雪蜜团购组 货号120167','100','./images/p/p001.jpg',NULL,1),
+        (2,'贡牌龙井-明前茶套组 货号120221','100','./images/p/p002.jpg',NULL,1),
+        (3,'八马茶`products`业安溪铁观音特惠组 货号120344','100','./images/p/p003.jpg',NULL,1),
+        (4,'红塔带鱼罐头套组 货号119954','100','./images/p/p004.jpg',NULL,1),
+        (5,'方家铺子海味干贝超值组 货号120238','100','./images/p/p005.jpg',NULL,1),
+
+        (6,'神栗食品','100','./images/p/p006.jpg',NULL,1),
+        (7,'方家铺子海味干贝','100','./images/p/p007.jpg',NULL,1),
+        (8,'吉顺号十年普洱茶','100','./images/p/p008.jpg',NULL,1),
+        (9,'蒜蓉粉丝扇贝','100','./images/p/p009.jpg',NULL,1),
+        (10,'新西兰纽什兰牛奶','100','./images/p/p010.jpg',NULL,1),
+        (11,'泸州52度浓香型白酒','100','./images/p/p011.jpg',NULL,1),
+
+        (12,'神栗河北特产有机板栗仁66g*4袋 原产地直供','39.80','./images/p/p012.jpg',NULL,1),
+        (13,'红塔带鱼罐头套组 货号119954','298.00','./images/p/p013.jpg',NULL,1),
+        (14,'战友蘑菇 天然百合干 干货 250g','19.00','./images/p/p014.jpg',NULL,1),
+        (15,'吉顺号十年普洱茶收藏组 货号118637','278.00','./images/p/p015.jpg',NULL,1),
+        (16,'【良品铺子】 甘栗80g','6.90','./images/p/p016.jpg',NULL,1),
+        (17,'无油烟油出口欧美1000ml食用油葡萄籽油（特级）','298','./images/p/p017.jpg',NULL,1),
+
+        (18,'神栗有机板栗仁熟栗子仁108g甘栗仁零食河北宽城特产','9.90','./images/p/p018.jpg',NULL,1),
+        (19,'木糖醇 无糖猴菇养胃饼干1500g礼盒 清真食品','39.80','./images/p/p019.jpg',NULL,1),
+        (20,'【良品铺子】炭烧腰果120g','13.90','./images/p/p020.jpg',NULL,1),
+        (21,'红塔黄桃超值组 货号118188','199.00','./images/p/p021.jpg',NULL,1),
+
+        (22,'泸州鉴赏级9珍藏套组 货号118742','316.00','./images/p/p022.jpg',NULL,1),
+        (23,'法国奥蒙侯爵干红葡萄酒套组 货号117751','468.00','./images/p/p023.jpg',NULL,1),
+        (24,'泸州老窖醇酿酒精品套组 货号119582','388.00','./images/p/p024.jpg',NULL,1),
+        (25,'卡本妮世家干红套组 货号117051','350.00','./images/p/p025.jpg',NULL,1),
+
+        (26,'法国欧德斯酒庄干红套组 货号119957','586.00','./images/p/p026.jpg',NULL,1),
+        (27,'法国进口巴菲波尔多干红葡萄酒六支加赠醒酒器和酒杯特惠','358.00','./images/p/p027.jpg',NULL,1),
+        (28,'法国贝特浓城堡亨利珍酿干红组 货号119603','468.00','./images/p/p028.jpg',NULL,1),
+        (29,'法国拉菲尚品波尔多干红套组 货号117992','1176.00','./images/p/p029.jpg',NULL,1),
+        (30,'西班牙斗牛士干红葡萄酒 原瓶进口红酒 整箱6支装 赠开瓶器','276.00','./images/p/p030.jpg',NULL,1),
+        (31,'法国卡普太阳王XO白兰地套组 货号118943','1960.00','./images/p/p031.jpg',NULL,1),
+
+        (33,'COACH女包','959','./images/p/p033.jpg',NULL,1),
+        (34,'宝格丽太阳镜','200','./images/p/p034.jpg',NULL,1),
+        (35,'爱马仕丝巾','100','./images/p/p035.jpg',NULL,1),
+        (36,'蒂芙尼项链 ','300','./images/p/p036.jpg',NULL,1);
+
+
+    USE xw002cnr
+
+
+    INSERT INTO userinfo(ulogin,upwd)VALUES(
+        'ming34902','abc123456'
+    )
+
+    SELECT*FROM userinfo;
+
+</script>

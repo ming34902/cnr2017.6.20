@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车-cart</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/iconfont.css" type="text/css" />
+    <link rel="stylesheet" href="css/cart.css" type="text/css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/mycookie.js"></script>
+    <script src="js/getcookie.js"></script>
+    <script src="js/cart.js"></script>
+</head>
+<body>
+<!--顶部开始-->
+<div  class="public-top-layout" style="width: 100%;">
+    <div  id="top">
+        <ul>
+            <li class="yonghu000" style="border-right:none;">
+                <a href="login.html" id="yonghu" >您好，请登录</a>
+                <a href="register.html" id="tuichu" class="c-ff6702" >免费注册</a>
+            </li>
+            <li>
+                <dl>
+                    <dt>我的订单<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>我的收藏<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>客户服务<span class="iconfont">&#xe6e1;</span></dt>
+                    <dd>
+            <li>待付款订单</li>
+            <li>待确认收货</li>
+            <li>待评价交易</li>
+            </dd>
+            </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--顶部结束-->
+<!--头部开始-->
+<div class="ncc-head-wrap ">
+    <header class="ncc-head-layout">
+        <div class="site-logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+        <ul class="ncc-flow">
+            <li class="current"><i class="step1 iconfont" style="font-size:22px;">&#xe612;</i>
+                <p>我的购物车</p>
+                <sub></sub>
+                <div class="hr"></div>
+            </li>
+            <li><i class="step2"></i>
+                <p>确认订单/结算</p>
+                <sub></sub>
+                <div class="hr"></div>
+            </li>
+            <li><i class="step3"></i>
+                <p>生成订单/支付</p>
+                <sub></sub>
+                <div class="hr"></div>
+            </li>
+            <li><i class="step4"></i>
+                <p>完成支付/等待出货</p>
+                <sub></sub>
+                <div class="hr"></div>
+            </li>
+        </ul>
+    </header>
+</div>
+<!--头部结束-->
+<!--购物车主板块开始-->
+<div class="ncc-main" style="min-height: 350px">
+    <!--标题区-->
+    <div class="ncc-title ncc-wrapper">
+        <h3>我的购物车</h3>
+        <h5>查看购物车中所添加的商品；增加减少数量、并勾选确认想要购买的商品进入下一步操作。</h5>
+    </div>
+    <div class="ncc-cart-status">购物车状态：
+        <span class="bar">
+            <span class="sub" id="buyMaxTopPanel" data-max="100" style="width: 2px;"></span>
+        </span>
+        <span class="sum" id="buyTopSumPanel">2/100</span>
+    </div>
+    <!--商品区-->
+    <form action="https://www.cnrmall.com/buy" method="POST" id="form_buy" name="form_buy">
+        <input type="hidden" value="1" name="isCart">
+        <input type="hidden" name="buyData" id="buyDataInput" value="[{&quot;goodsId&quot;:11192405,&quot;buyNum&quot;:&quot;1&quot;},{&quot;goodsId&quot;:11192388,&quot;buyNum&quot;:&quot;1&quot;}]">
+        <input type="hidden" name="isExistBundling" id="isExistBundlingInput" value="0">
+
+        <div class="ncc-wrapper">
+            <!--表头-->
+            <div id="normalGoodsList">
+                <div class="ncc-mod-thead">
+                    <ul class="columns">
+                        <li class="col-opt">
+                            <span class="checkbox-layout">
+                              <label>
+                                  <input type="checkbox" class="checkbox checkAll02" id="checkedAllBtn" autocomplete="off" checked="checked">
+                                  全选
+                              </label>
+                            </span>
+                        </li>
+                        <li class="col-goods">商品</li>
+                        <li class="col-quantity">数量</li>
+                        <li class="col-unitprice">单价 (元)</li>
+                        <li class="col-rebate">优惠</li>
+                        <li class="col-amount">单商品金额 (元)</li>
+                    </ul>
+                </div>
+            </div>
+            <!--商品-->
+            <div id="mycartcokkie" style="width: 100%;height: auto;overflow: hidden;background: #fff;text-align: center;">
+                <!--调取cart-cookie 动态创建商品信息-->
+            </div>
+            <!--结算-->
+            <div id="modTfootPanelShow">
+                <div class="ncc-mod-tfoot tfoot-fix-bottom" id="modTfootPanel">
+                    <div class="actions">
+                        <span class="checkbox-layout">
+                          <input type="checkbox" class="checkbox checkAll01" id="checkedAllBottomBtn" autocomplete="off" checked="checked">
+                          <label >全选</label>
+                        </span>
+                        <a href="javascript:;" class="delete-checked" id="mDelSkuBtn">清空购物车</a>
+                    </div>
+                    <div class="summary">
+                        <dl>
+                            <dt>选购商品种类：</dt>
+                            <dd class="kinds-total">
+                                <span class="value" id="kindsTotal">2</span>种
+                            </dd>
+                            <dt>选购数量总计：</dt>
+                            <dd class="quantity-total">
+                                <span class="value" id="quantityTotal">2</span>件
+                            </dd>
+                            <dt>商品金额总计（不包含运费）：</dt>
+                            <dd class="amount-total">
+                                <strong class="value" id="amountTotal">1612.00</strong>元
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form">
+                        <button id="cartSubmit" class="checkout">结算</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <!--商品区-->
+
+
+</div>
+<!--购物车主板块结束-->
+<!--浏览记录-->
+<div style="width: 100%;height: auto">
+    <div class="nc-goods-browse-box">
+        <div class="title">
+            <h3>浏览记录</h3>
+        </div>
+        <div class="content">
+            <div class="bx-wrapper" style="max-width: 1200px;">
+                <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 291px;">
+                    <ul id="goodsBrowseList" class="goods-list" style="width: 715%; position: relative; transition-duration: 0s; transform: translate3d(-1200px, 0px, 0px);">
+                        <li class="goods-item bx-clone" style="float: left; list-style: none; position: relative; width: 240px;">
+                            <div class="goods-pic">
+                                <a href="https://www.cnrmall.com/goods/5685935" target="_blank"> <img alt="蔻驰（COACH）女款经典C纹手提单肩包" src="https://pic3.cnrmall.com/image/71/29/71290dfd4f343f8358b61b4dd4272ace.jpg@240w_240h"> </a> </div>
+                            <dl class="goods-info">
+                                <dt><a href="https://www.cnrmall.com/goods/5685935" title="蔻驰（COACH）女款经典C纹手提单肩包" target="_blank">蔻驰（COACH）女款经典C纹手提单肩包</a></dt>
+                                <dd>￥<em>1299.00</em></dd>
+                            </dl>
+                        </li>
+                        <li class="goods-item bx-clone" style="float: left; list-style: none; position: relative; width: 240px;">
+                            <div class="goods-pic"><a href="https://www.cnrmall.com/goods/7936916" target="_blank"> <img alt="COACH/蔻驰 女士黑色镜框渐变镜片雏菊镜架时尚太阳镜 8188BF 500211 55" src="https://pic1.cnrmall.com/image/06/14/0614f5935220b570a400388780a6fa47.jpg@240w_240h"> </a> </div>
+                            <dl class="goods-info">
+                                <dt><a href="https://www.cnrmall.com/goods/7936916" title="COACH/蔻驰 女士黑色镜框渐变镜片雏菊镜架时尚太阳镜 8188BF 500211 55" target="_blank">COACH/蔻驰 女士黑色镜框渐变镜片雏菊镜架时尚太阳镜 8188BF 500211 55</a></dt>
+                                <dd>￥<em>1880.00</em></dd>
+                            </dl>
+                        </li>
+                        <li class="goods-item bx-clone" style="float: left; list-style: none; position: relative; width: 240px;">
+                            <div class="goods-pic"><a href="https://www.cnrmall.com/goods/9853574" target="_blank"> <img alt="HERMES/爱马仕 女式真丝印花炫彩丝巾 H003070S 01" src="https://pic1.cnrmall.com/image/f4/c6/f4c6131151aaf7757da1d81c481154e5.jpg@240w_240h"> </a> </div>
+                            <dl class="goods-info">
+                                <dt><a href="https://www.cnrmall.com/goods/9853574" title="HERMES/爱马仕 女式真丝印花炫彩丝巾 H003070S 01" target="_blank">HERMES/爱马仕 女式真丝印花炫彩丝巾 H003070S 01</a></dt>
+                                <dd>￥<em>5500.00</em></dd>
+                            </dl>
+                        </li>
+                        <li class="goods-item bx-clone" style="float: left; list-style: none; position: relative; width: 240px;">
+                            <div class="goods-pic"><a href="https://www.cnrmall.com/goods/9595835" target="_blank"> <img alt="Tiffany &amp; Co./蒂芙尼 女士纯银Loving Heart爱心吊坠项链 33834764" src="https://pic5.cnrmall.com/image/74/f6/74f60e10e0ad1d63727a90fe2c95648e.jpg@240w_240h"> </a> </div>
+                            <dl class="goods-info">
+                                <dt><a href="https://www.cnrmall.com/goods/9595835" title="Tiffany &amp; Co./蒂芙尼 女士纯银Loving Heart爱心吊坠项链 33834764" target="_blank">Tiffany &amp; Co./蒂芙尼 女士纯银Loving Heart爱心吊坠项链 33834764</a></dt>
+                                <dd>￥<em>2800.00</em></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bx-controls bx-has-pager bx-has-controls-direction">
+                    <div class="bx-pager bx-default-pager">
+                        <div class="bx-pager-item">
+                            <a href="" data-slide-index="0" class="bx-pager-link active">1</a>
+                        </div>
+                    </div>
+                    <div class="bx-controls-direction">
+                        <a class="bx-prev disabled" href="" style="display: inline;">&lt;</a>
+                        <a class="bx-next disabled" href="" style="display: inline;">&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--浏览记录-->
+<!--copyright-->
+<div id="footer">
+    <div class="wrapper">
+        <p><a href="index.html">首页</a>
+            | <a target="_blank" href="javascript:void(0)">招商合作</a>           | <a target="_blank" href="javascript:void(0)">关于央广购物</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/175304">联系我们</a>           | <a target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp">成为供应商</a>           | <a target="_blank" href="https://web.cnrmall.com/article/info/532349">招贤纳士</a>
+        </p>
+        <p><i></i>京公网安备：11011502002190&nbsp;&nbsp;<a target="_blank" href="javascript:void(0)">京ICP备10038858号</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a></p>
+        <p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2017 cnrmall.com All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+        <ul class="footer-img">
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+            <li><a  href="javacript:void(0)" target="_blank"></a></li>
+        </ul>
+    </div>
+</div>
+<!--底部-->
+</body>
+</html>
